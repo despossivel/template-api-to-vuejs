@@ -72,6 +72,16 @@ Para executar o contêiner Docker localmente, você pode usar os seguintes coman
 #docker para Postgres
 docker-compose  -f  ./docker-postgres.yaml
  
+#caso decida executar o projeto sem o docker, rode os comandos abaixo para
+#preparar o banco de dados.
+npx prisma migrate dev --name init
+
+#o comando abaixo vai criar um admin
+npx prisma db seed
+#email: demo@demo.com
+#password: demo
+
+
 # Usando docker run
 docker  build  -t  api  .
 docker  run  -p  5000:5000  front

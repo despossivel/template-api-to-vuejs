@@ -45,5 +45,8 @@
     "@babel/preset-env": "^7.7.7",
     "mocha": "^7.1.0",
     "supertest": "^6.3.4"
+  },
+  "prisma": {
+    "seed": "node prisma/seeds/seed.js"
   }
 }

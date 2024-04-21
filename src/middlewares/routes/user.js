@@ -14,7 +14,7 @@ const middleware = {
         expressValidation
     ],
     store: [
-        // Jwt.verify,
+        Jwt.verify,
         check('name').notEmpty(),
         check('email').notEmpty().isEmail().custom(async (value) => {
             const user = await prisma.user.count({

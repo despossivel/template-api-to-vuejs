@@ -30,8 +30,12 @@ describe('Teste de integração para rota /users', () => {
 
         const authorization = await getAuthorization();
 
+        const users = await request(app)
+        .get('/users')
+        .set('Authorization', authorization);
+ 
         const response = await request(app)
-            .get('/user/4')
+            .get(`/user/${users.body[0].id}`)
             .set('Authorization', authorization);
 
         assert.strictEqual(response.status, 200)
