@@ -1,0 +1,18 @@
+version: "2"
+services:
+  maisaeducacao:
+    container_name: maisaeducacao
+    build: . 
+    command: pm2-runtime process.json
+    volumes:
+      - .:/usr/maisaeducacao
+      - ./node_modules:/usr/maisaeducacao/node_modules
+    ports:
+      - "5000:5000"
+    networks:
+      - maisaeducacao
+    restart: always
+
+networks:
+  maisaeducacao:
+    driver: bridge
